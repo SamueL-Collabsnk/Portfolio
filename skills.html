@@ -2,23 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Skills - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Skills - Samuel Kimonge</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav>
         <a href="index.html">Home</a>
-        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html" class="active">Skills</a>
+        <a href="education.html">Education</a>
+        <a href="contact.html">Contact</a>
     </nav>
-    <main>
-        <h1>My Skills</h1>
-        <ul>
-            <li>HTML &amp; CSS</li>
-            <li>JavaScript</li>
-            <li>Python</li>
-            <li>React</li>
-            <li>Git &amp; GitHub</li>
-        </ul>
-    </main>
+    <section id="skills">Web
+        <h2>My Skills</h2>
+        <div class="skill">
+            <span>HTML &amp; CSS</span>
+            <div class="skill-bar"><div class="skill-level" style="width: 95%"></div></div>
+        </div>
+        <div class="skill">
+            <span>JavaScript</span>
+            <div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>
+        </div>
+        <div class="skill">
+            <span>Python</span>
+            <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
+        </div>
+        <div class="skill">
+            <span>React</span>
+            <div class="skill-bar"><div class="skill-level" style="width: 80%"></div></div>
+        </div>
+        <div class="skill">
+            <span>Git &amp; GitHub</span>
+            <div class="skill-bar"><div class="skill-level" style="width: 75%"></div></div>
+        </div>
+    </section>
+    <script>
+    // Animate skill bars
+    document.querySelectorAll('.skill-level').forEach(function(bar) {
+        bar.style.width = '0';
+        setTimeout(function() {
+            bar.style.transition = 'width 1.2s';
+            bar.style.width = bar.parentElement.getAttribute('style').split(':')[1];
+        }, 200);
+    });
+    </script>
 </body>
 </html>

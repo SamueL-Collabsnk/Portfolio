@@ -7,38 +7,82 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="education.html">Education</a>
+        <a href="contact.html">Contact</a>
+    </nav>
     <header>
-        <h1>Samuel Kimonge</h1>
-        <p>Web Developer & Designer</p>
+        <div class="hero">
+            <img src="https://ui-avatars.com/api/?name=Samuel+Kimonge&background=4a90e2&color=fff&size=128" alt="Samuel Kimonge" class="avatar">
+            <h1>Samuel Kimonge</h1>
+            <p>Web Developer & Designer</p>
+        </div>
     </header>
     <section id="about">
         <h2>About Me</h2>
-        <p>Hello! I'm Samuel, a passionate web developer with experience in building modern websites and web applications.</p>
+        <p>Hello! I'm Samuel, a passionate web developer with experience in building modern websites and web applications. I love creating beautiful, user-friendly interfaces and solving real-world problems with code.</p>
+        <ul class="about-list">
+            <li><strong>Location:</strong> Nairobi, Kenya</li>
+            <li><strong>Email:</strong> samuel@example.com</li>
+            <li><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/samuelkimonge</a></li>
+        </ul>
     </section>
-    <section id="projects">
-        <h2>Projects</h2>
+    <section id="quick-projects">
+        <h2>Featured Projects</h2>
         <div class="project">
-            <h3>Project One</h3>
-            <p>A simple website built with HTML, CSS, and JS.</p>
+            <h3>Portfolio Website</h3>
+            <p>Modern, responsive portfolio built with HTML, CSS, and JS.</p>
         </div>
         <div class="project">
-            <h3>Project Two</h3>
-            <p>Responsive portfolio design.</p>
+            <h3>Task Manager App</h3>
+            <p>Simple task manager with interactive UI and local storage.</p>
         </div>
+        <a href="projects.html" class="btn">See All Projects</a>
     </section>
-    <section id="contact">
+    <section id="skills-preview">
+        <h2>Skills</h2>
+        <div class="skill">
+            <span>HTML &amp; CSS</span>
+            <div class="skill-bar"><div class="skill-level" style="width: 95%"></div></div>
+        </div>
+        <div class="skill">
+            <span>JavaScript</span>
+            <div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>
+        </div>
+        <div class="skill">
+            <span>Python</span>
+            <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
+        </div>
+        <a href="skills.html" class="btn">See All Skills</a>
+    </section>
+    <section id="education-preview">
+        <h2>Education</h2>
+        <div class="edu-item">
+            <h3>BSc in Computer Science</h3>
+            <p>University of Nairobi, 2021 - 2025</p>
+        </div>
+        <a href="education.html" class="btn">See More</a>
+    </section>
+    <section id="contact-preview">
         <h2>Contact</h2>
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-        <p id="formMessage"></p>
+        <p>Want to get in touch? <a href="contact.html" class="btn">Contact Me</a></p>
     </section>
     <footer>
-        <p>&copy; 2025 Samuel Doe</p>
+        <p>&copy; 2025 Samuel Kimonge</p>
     </footer>
     <script src="script.js"></script>
+    <script>
+    // Animate skill bars on home page
+    document.querySelectorAll('.skill-level').forEach(function(bar) {
+        bar.style.width = '0';
+        setTimeout(function() {
+            bar.style.transition = 'width 1.2s';
+            bar.style.width = bar.parentElement.getAttribute('style').split(':')[1];
+        }, 200);
+    });
+    </script>
 </body>
 </html>
