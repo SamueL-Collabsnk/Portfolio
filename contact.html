@@ -8,6 +8,9 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <style>
+        
+    </style>
     <nav>
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
@@ -17,16 +20,45 @@
     </nav>
     <section id="contact">
         <h2>Contact Me</h2>
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Your Message" required></textarea>
+        <form id="contactForm" method="POST" action="/send-email">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
             <button type="submit">Send</button>
         </form>
-        <p id="formMessage"></p>
+        <p id="formMessage" style="display:none;color:green;font-weight:bold;"></p>
     </section>
     <footer>
         <p>&copy; 2025 Samuel Kimonge</p>
     </footer>
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const data = {
+            name: form.name.value,
+            email: form.email.value,
+            message: form.message.value
+        };
+        try {
+            const res = await fetch('/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            if (res.ok) {
+                document.getElementById('formMessage').textContent = 'Message sent successfully!';
+                document.getElementById('formMessage').style.display = 'block';
+                form.reset();
+            } else {
+                document.getElementById('formMessage').textContent = 'Failed to send message.';
+                document.getElementById('formMessage').style.display = 'block';
+            }
+        } catch {
+            document.getElementById('formMessage').textContent = 'Error sending message.';
+            document.getElementById('formMessage').style.display = 'block';
+        }
+    });
+    </script>
 </body>
 </html>
